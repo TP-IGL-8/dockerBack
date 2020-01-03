@@ -10,14 +10,13 @@ class EtudiantCtrl extends Controller
     
     public function newEtudiant(){
         $newEtudiant=new Etudiant();
-        $newEtudiant->nom="nekamiche";
-        $newEtudiant->prenom="noha";
+        $newEtudiant->nom="user";
+        $newEtudiant->prenom="99";
+        $newEtudiant->mat="17";
         $newEtudiant->annee="1CS";
         $newEtudiant->grp="G04";
-        $newEtudiant->mat="17/0129";
-       
-        $newEtudiant->email="hn_nekamiche@esi.dz";
-        $newEtudiant->password="595dza";
+        $newEtudiant->email="user@esi.dz";
+        $newEtudiant->password="zzzz";
         $newEtudiant->moy="14";
         $newEtudiant->save();
     }
@@ -67,17 +66,18 @@ class EtudiantCtrl extends Controller
     }*/
     public function cree(Request $request){
         $newEtu=new Etudiant();
-        $newEtu->nom=$request->input('nom');
-        $newEtu->prenom=$request->input('prenom');
-        $newEtu->annee=$request->input('annee');
-        $newEtu->grp=$request->input('grp');
-        $newEtu->mat=$request->input('mat');
+        
        
-        $newEtu->email=$request->input('email');
-        $newEtu->password=$request->input('password');
-        $newEtu->moy=$request->input('moy');
-
+        $newEtu->nom=$nom=$request->input('nom');
+        $newEtu->prenom=$prenom=$request->input('prenom');
+        $newEtu->email=$email=$request->input('email');
+        $newEtu->mat=$mat=$request->input('mat');
+        $newEtu->moy=$moy=$request->input('moy');
+        $newEtu->grp=$grp=$request->input('grp');
+        $newEtu->annee=$annee=$request->input('annee');
+        $newEtu->password=$password=$request->input('password');
+        $newetu->fonction='etudiant';
         $newEtu->save();
-      
+        return response()->json($newEtu, 201); 
     }
 }
